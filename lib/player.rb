@@ -13,6 +13,7 @@ class Player
       board.collect_hits(position)
       board.checks(position)
       "Hit" 
+      "You won!" if won? 
     else
       board.collect_misses(position)
       "Miss"
