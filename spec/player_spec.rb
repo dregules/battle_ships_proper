@@ -2,7 +2,7 @@ require 'player'
 
 describe Player do
   let (:board) { double :board, :collect_hits => "A2", :place_ship => "A2"}
-  let (:player) { Player.new Board}
+  let (:player) { Player.new Board }
   let (:ship) { double :ship,  :size => 2, :get_hit => 1 }
   let (:unhit_ship) { double :unhit_ship, :hits => 0 }
 

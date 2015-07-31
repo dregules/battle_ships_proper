@@ -1,6 +1,6 @@
 require_relative "numeric"  # => true
 
-require 'pry'  # => true
+# require 'pry'  # => true
 
 class Board
 
