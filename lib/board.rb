@@ -1,13 +1,13 @@
-require_relative "numeric"
+require_relative "numeric"  # => true
 
-require 'pry'
+require 'pry'  # => true
 
 class Board
 
-	DEFAULT_GRID_SIZE = 10
-	BASE_OFFSET = 64
+	DEFAULT_GRID_SIZE = 10  # => 10
+	BASE_OFFSET = 64        # => 64
 
-	attr_reader :ships, :grid_size, :hits, :misses
+	attr_reader :ships, :grid_size, :hits, :misses  # => nil
 
 	def initialize(grid_size=DEFAULT_GRID_SIZE)
 		@ships = {}
@@ -19,9 +19,14 @@ class Board
 	def coordinates_for spaces, coordinate, direction
 		coordinates = [coordinate]
 		(spaces - 1).times do
-			coordinates << (direction == :horizontal ? coordinates.last.next : next_vertical(coordinates.last))
+			coordinates << (direction == :horizontal ? next_horizontal(coordinates.last) : next_vertical(coordinates.last))
 		end
 		coordinates
+	end
+
+	def next_horizontal coordinate
+		letter, number = coordinate.scan(/\d+|\D+/)
+		letter + number.next
 	end
 
 	def next_vertical coordinate
@@ -61,6 +66,6 @@ class Board
 	end
 
 	def all_ships_sunk?
-		@ships.keys.length == @hits.length
+		ships.keys.length == @hits.length
 	end
 end

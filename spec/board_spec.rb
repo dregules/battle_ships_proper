@@ -4,7 +4,7 @@ require 'board'
 describe Board do
   let(:ship) { double :ship, size: 2 }
   let(:unhit_ship) { double(:unhit_ship, :size => 2, :hits => 0 ) }
-  let(:player) { double(:player, :fire => "") }
+  let(:player) { double(:player, :fire => "", ) }
 
 	describe "#place_ship" do
 		it "responds to place with 3 arguments" do

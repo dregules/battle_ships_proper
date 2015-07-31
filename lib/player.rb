@@ -4,12 +4,12 @@ class Player
 
   attr_reader :board
 
-  def initialize(board)
-    @board = board
+  def initialize(board_class)
+    @board = board_class.new
   end
 
   def fire(position)
-    if @board.ships.keys.include?(position)
+    if board.ships.keys.include?(position)
       board.collect_hits(position) #untested
       board.checks(position) #untested
       "Hit"
